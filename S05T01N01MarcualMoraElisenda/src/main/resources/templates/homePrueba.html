@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: cabecera">
+</head>
+
+
+<body>
+	
+	<header th:replace="plantilla/template :: header"></header>
+	<div class="container">
+	<h1 th:fragment="fixed-bottom">Este es el proyecto de Sucursales de <span th:text="${nombre}"></span></h1>
+	</div>
+
+
+</body>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+
+</html>
