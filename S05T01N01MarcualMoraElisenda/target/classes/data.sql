@@ -1,1 +1,0 @@
-INSERT INTO sucursal VALUES (1,'Sucxursal', 'T');
