@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: cabecera">
+</head>
+
+
+<body>
+	
+
+	<div th:insert="plantilla/head :: div"></div>
+
+	<div class="container text-white">
+	<h1 th:fragment="fixed-bottom">Este es el proyecto de Sucursales de <span th:text="${nombre}"></span></h1>
+
+	<a href="/sucursal/getAll">Acceder al CRUD Sucursales</a> <!-- Siempre en modo GET -->
+	<a href="/sucursal/add">Añadir al CRUD Sucursales</a> <!-- Siempre en modo GET -->
+
+	</div>
+
+
+</body>
+
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+
+</html>
