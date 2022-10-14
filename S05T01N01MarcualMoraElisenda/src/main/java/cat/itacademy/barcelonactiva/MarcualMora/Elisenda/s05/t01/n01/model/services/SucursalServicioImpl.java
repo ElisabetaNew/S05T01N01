@@ -81,19 +81,25 @@ public class SucursalServicioImpl implements SucursalServices {
 		dto.setPk_SucursalID(sucursal.getPk_SucursalID());
 		dto.setNomSucursal(sucursal.getNomSucursal());
 		dto.setPaisSucursal(sucursal.getPaisSucursal());
+		dto.setTipusSucursal("ForaUE");
 
 		boolean encontrado = false;
 		int i = 0;
 
-		List<String> listaPaises = Arrays.asList(dto.getLlistaPaises());
+		String[] llistaPaises= {"Alemania", "Bélgica", "Croacia", "Dinamarca", "España", "Francia",
+				"Irlanda", "Letonia", "Luxemburgo", "PaísesBajos", "Suecia", "Bulgaria", "Eslovaquia",
+				"Estonia", "Grecia", "Malta", "Polonia", "RepúblicaCheca", "Austria", "Chipre",
+				"Eslovenia", "Finlandia", "Hungría", "Italia", "Lituania", "Portugal", "Rumanía"};
+		
+		List<String> listaPaises = Arrays.asList(llistaPaises);
 		while (encontrado == false && i < listaPaises.size()) {
 			if (dto.getPaisSucursal().equalsIgnoreCase(listaPaises.get(i))) {
 				dto.setTipusSucursal("UE");
 				encontrado = true;
 			}
-			i++;
+			i++;	
 		}
-		dto.setTipusSucursal("ForaUE");
+		
 		return dto;
 	}
 
@@ -109,8 +115,8 @@ public class SucursalServicioImpl implements SucursalServices {
 	}
 
 	// devuelve lista de SucursalesDTO a partir de lista de sucursales (entity)
-	private ArrayList<SucursalDTO> getDTOBySucursales(List<Sucursal> sucursales) {
-		ArrayList<SucursalDTO> sucursalesdto = null;
+	private List<SucursalDTO> getDTOBySucursales(List<Sucursal> sucursales) {
+		List<SucursalDTO> sucursalesdto = null;
 		if (sucursales != null) {
 			sucursalesdto = new ArrayList<SucursalDTO>();
 

@@ -32,8 +32,8 @@ public class SucursalController {
 	// http://localhost:9000/sucursal/add ---- crear fruta
 	@GetMapping("/add")
 	public ModelAndView addSucursal(ModelAndView modelAndView) {
-		SucursalDTO sucursal = new SucursalDTO();
-		modelAndView.addObject("Nueva_Sucursal", sucursal);
+		SucursalDTO sucursal = new SucursalDTO(3, "Hotel Paris", "Francia", "UE");
+		modelAndView.addObject("Nueva_Sucursal", sucursalService.addSucursal(sucursal));
 		modelAndView.setViewName("sucursal/addSucursal");
 		return modelAndView;
 	}

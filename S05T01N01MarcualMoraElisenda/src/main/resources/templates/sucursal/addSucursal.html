@@ -9,7 +9,7 @@
 	<div th:insert="plantilla/head :: div"></div>
 
 	<h1 class="text-white">Añadir nueva sucursal</h1>
-
+   
 
 	<!--  
 	<div class="card">
@@ -20,7 +20,7 @@
 	<div class="card-body">
 		<div>
 			<form th:object="${Nueva_Sucursal}" method="get"
-				th:action="@{/sucursal/add}">
+				th:action="@{sucursal/addSucursal}">
 				<div class="form-group row">
 					<label
 						class="col-lg-3 col-form-label form-control-label text-center text-white required">Nom

@@ -10,10 +10,10 @@ public class SucursalDTO {
 	private String nomSucursal;
 	private String paisSucursal;
 	private String tipusSucursal;
-	private String[] llistaPaises= {"Alemania", "Bélgica", "Croacia", "Dinamarca", "España", "Francia",
-				"Irlanda", "Letonia", "Luxemburgo", "PaísesBajos", "Suecia", "Bulgaria", "Eslovaquia",
-				"Estonia", "Grecia", "Malta", "Polonia", "RepúblicaCheca", "Austria", "Chipre",
-				"Eslovenia", "Finlandia", "Hungría", "Italia", "Lituania", "Portugal", "Rumanía"};
+//	private String[] llistaPaises= {"Alemania", "Bélgica", "Croacia", "Dinamarca", "España", "Francia",
+//				"Irlanda", "Letonia", "Luxemburgo", "PaísesBajos", "Suecia", "Bulgaria", "Eslovaquia",
+//				"Estonia", "Grecia", "Malta", "Polonia", "RepúblicaCheca", "Austria", "Chipre",
+//				"Eslovenia", "Finlandia", "Hungría", "Italia", "Lituania", "Portugal", "Rumanía"};
 	
 	// constructores
 	public SucursalDTO(int pk_SucursalID, String nomSucursal, String paisSucursal, String tipusSucursal) {
@@ -50,14 +50,13 @@ public class SucursalDTO {
 	public String getTipusSucursal() {
 		return tipusSucursal;
 	}
-	
 	public void setTipusSucursal(String tipusSucursal) {
 		this.tipusSucursal = tipusSucursal;
 	}
 	
-	public String[] getLlistaPaises() {
-		return llistaPaises;
-	}
+//	public String[] getLlistaPaises() {
+//		return llistaPaises;
+//	}
 
 
 	@Override

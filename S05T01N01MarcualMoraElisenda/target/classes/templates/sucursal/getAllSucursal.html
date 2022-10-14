@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
+
 <head>
-<th:block th:replace="plantilla/template :: cabecera"></th:block>
+	<th:block th:replace="plantilla/template :: cabecera"></th:block>
 </head>
 
 
@@ -10,13 +11,11 @@
 
 	<h1 class="text-white">Lista sucursales</h1>
 
-	<form th:object="${Lista_Sucursales}" method="post"
-		th:action="@{/sucursal/getAll}">
-		</form>
+	<form th:object="${Lista_Sucursales}" method="get" th:action="@{/sucursal/getAll}">
+	</form>
 
 	<div class="table-responsive">
-		<table id="userList"
-			class="table table-bordered table-hover table-striped">
+		<table id="userList" class="table table-bordered table-hover table-striped">
 			<thead class="thead-light">
 				<tr>
 					<th scope="col">ID</th>
@@ -27,26 +26,35 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="sucursales :${sucursales}">
-					<td th:text="${sucursales.pk_SucursalID"></td>
-					<td th:text="${sucursales.nomSucursal"></td>
-					<td th:text="${sucursales.paisSucursal"></td>
-					<td th:text="${sucursales.tipusSucursal"></td>
-					<td><a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-							class="fas fa-user-times"></i></a></td>
+
+				<tr th:each="sucursal : ${Lista_Sucursales}">					
+					<td th:text="${sucursal.pk_SucursalID}"></td>
+					<!--<td><a href="#" th:text="${sucursal.nomSucursal}"></a></td>-->
+					<td th:text="${sucursal.nomSucursal}"></td>
+					<td th:text="${sucursal.paisSucursal}"></td>
+					<td th:text="${sucursal.tipusSucursal}"></td>
+					<!--
 					<td><a class="btn btn-info"
-					th:href="@{/sucursal/getOne/_${sucursales.pk_SucursalID}_}"
+					th:href="@{/sucursal/getOne/${sucursal.pk_SucursalID}}"
+					role="button">Ver detalle</a></td>
+					-->
+					<td><a class="btn btn-info"
+					th:href="@{'/sucursal/getOne/' + ${sucursal.pk_SucursalID}}"
 					role="button">Ver detalle</a></td>
 					<td><a class="btn btn-warning"
-					th:href="@{/sucursal/update_${sucursales.pk_SucursalID}_}"
+					th:href="@{'/sucursal/update/' + ${sucursal.pk_SucursalID}}"
 					role="button">Modificar sucursal</a></td>
 					<td><a class="btn btn-danger"
-					th:href="@{/sucursal//delete/_${sucursales.pk_SucursalID}_}"
+					th:href="@{'/sucursal/delete/' + ${sucursal.pk_SucursalID}}"
 					role="button">Borrar sucursal</a></td>
-							
+					
+					
 				</tr>
+				</tr>
+
 			</tbody>
 		</table>
 	</div>
 </body>
+
 </html>
