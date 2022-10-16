@@ -46,15 +46,13 @@
 					role="button">Modificar sucursal</a></td>
 					<td><a class="btn btn-danger"
 					th:href="@{'/sucursal/delete/' + ${sucursal.pk_SucursalID}}"
-					role="button">Borrar sucursal</a></td>
+					role="button"
+					onclick="confirm('Vol esborar sucursal?')">Borrar sucursal</a></td>
 					
 					
 				</tr>
 				</tr>
 
 			</tbody>
-		</table>
+		</table>				
 	</div>
-</body>
-
-</html>

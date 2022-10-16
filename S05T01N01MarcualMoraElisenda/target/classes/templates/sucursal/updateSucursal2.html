@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<th:block th:replace="plantilla/template :: cabecera"></th:block>
+</head>
+
+
+<body>
+	<div th:insert="plantilla/head :: div"></div>
+
+	<h1 class="text-white">Modificar sucursal</h1>
+
+	<form th:object="${Sucursal}" method="post"
+		th:action="@{/sucursal/update}">
+
+		<input type="hidden" th:field="*{pk_SucursalID}">
+
+		<div class="form-group">
+			<label class="cloud-label">Nom</label><input type="text"
+				th:field="*{nomSucursal}" disabled> <br> <label
+				class="cloud-label">Pais</label><input type="text"
+				th:field="*{paisSucursal}" disabled> <br> <label
+				class="cloud-label"> TipusSucursal</label> <input type="text"
+				th:field="*{tipusSucursal}" disabled>
+
+		</div>
+		<button type="submit" class="btn btn-success">Guardar</button>
+		<a class="btn btn-danger" th:href="@{/sucursal/getAll}" role="button">Cancelar</a>
+
+	</form>
+</body>
+</html>

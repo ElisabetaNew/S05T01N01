@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="https://thymeleaf.org">
+
 <head>
-<th:block th:replace="plantilla/template :: cabecera"></th:block>
+	<th:block th:replace="plantilla/template :: cabecera"> </th:block>
 </head>
 
 
 <body>
-	<div th:insert="plantilla/head :: div"></div>
+	<div th:insert="plantilla/head :: div"> </div>
 
 	<h1 class="text-white">Ver sucursal</h1>
 
-	<form th:object="${Sucursal}" method="get"
-		th:action="@{/sucursal/getAll}">
+	<form th:action="@{/sucursal/getOne}" th:object="${Sucursal}" method="get">
 
 		<input type="hidden" th:field="*{pk_SucursalID}">
 
-		<div class="form-group">
-			<label class="cloud-label">Nom</label><input type="text"
-				th:field="*{nomSucursal}" disabled> <br> <label
-				class="cloud-label">Pais</label><input type="text"
-				th:field="*{paisSucursal}" disabled> <br> <label
-				class="cloud-label"> TipusSucursal</label> <input type="text"
-				th:field="*{tipusSucursal}" disabled>
-
+		<div class="form-group row">
+			<label class="col-lg-3 text-center text-white">Nom
+				Sucursal</label>
+			<input type="text" th:field="*{nomSucursal}" disabled> <br>
+			<label class="col-lg-3 text-center text-white required">Pais
+				Sucursal</label>
+			<input type="text" th:field="*{paisSucursal}" disabled> <br>
+			<label class="col-lg-3 text-center text-white required">Tipus
+				Sucursal</label>
+			<input type="text" th:field="*{tipusSucursal}" disabled> <br>
 		</div>
-		<button type="submit" class="btn btn-success">Volver</button>
-
 	</form>
 </body>
+
 </html>

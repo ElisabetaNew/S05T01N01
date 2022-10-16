@@ -14,7 +14,7 @@ public class Sucursal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pkid_sucursal")
-	private int pk_SucursalID;
+	private Integer pk_SucursalID;
 
 	@Column(name = "nom_sucursal", length = 150, nullable = false)
 	private String nomSucursal;
@@ -32,7 +32,7 @@ public class Sucursal {
 		this.paisSucursal = paisSucursal;
 	}
 
-	public Sucursal(int pk_SucursalID, String nomSucursal, String paisSucursal) {
+	public Sucursal(Integer pk_SucursalID, String nomSucursal, String paisSucursal) {
 		super();
 		this.pk_SucursalID = pk_SucursalID;
 		this.nomSucursal = nomSucursal;
@@ -40,11 +40,11 @@ public class Sucursal {
 	}
 
 	// getter y setter
-	public int getPk_SucursalID() {
+	public Integer getPk_SucursalID() {
 		return pk_SucursalID;
 	}
 
-	public void setPk_SucursalID(int pk_SucursalID) {
+	public void setPk_SucursalID(Integer pk_SucursalID) {
 		this.pk_SucursalID = pk_SucursalID;
 	}
 
