@@ -30,14 +30,22 @@ public class SucursalController {
 	@Autowired
 	private SucursalServicioImpl sucursalService;
 
-	// http://localhost:9000/sucursal/add ---- crear fruta
+    // http://localhost:9000/sucursal/add ---- crear fruta
 	@GetMapping("/add")
-	public ModelAndView addSucursal(ModelAndView modelAndView) {
+	public ModelAndView addSucursal() {
 		SucursalDTO sucursal = new SucursalDTO();
-		modelAndView.addObject("Sucursal", (sucursal));
-		modelAndView.setViewName("sucursal/addSucursal3");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("Sucursal", sucursal);
+		modelAndView.setViewName("sucursal/addSucursal");
 		return modelAndView;
 	}
+	
+	@PostMapping("/guardar")
+	    public ModelAndView saveSucursal(@ModelAttribute("Sucursal") SucursalDTO sucursalDTO){
+		sucursalService.addSucursal(sucursalDTO);
+		return new ModelAndView ("redirect:/sucursal/getAll");
+	    }
+
 
 	// http://localhost:9000/sucursal/getAll ---- recuperar todas las sucursales
 	@GetMapping("/getAll")
@@ -49,7 +57,6 @@ public class SucursalController {
 	}
 
 	// http://localhost:9000/sucursal/getOne/{id} ----- recuperar sucursal por id
-	//@GetMapping("/getOne/{id}")
 	@GetMapping("/getOne/{id}")
 	public ModelAndView getOneSucursal(ModelAndView modelAndView, @PathVariable("id") Integer id) {
 		SucursalDTO sucursal = sucursalService.getOneSucursal(id);
@@ -59,7 +66,6 @@ public class SucursalController {
 	}
 
 	// http://localhost:9000/sucursal/update ---- actualizar o modificar sucursal
-	//@PostMapping("/update/{id}")
 	@GetMapping("/update/{id}")
 	public ModelAndView updateSucursal(ModelAndView modelAndView, @PathVariable("id") Integer id) {
 		SucursalDTO sucursalDTO = sucursalService.getOneSucursal(id);
@@ -69,7 +75,6 @@ public class SucursalController {
 	}
 
 	// http://localhost:9000/sucursal/delete/{id} ---- borrar sucursal por id
-	//@DeleteMapping("/delete")
 	@GetMapping("/delete/{id}")
 	public ModelAndView deleteSucursal(@PathVariable("id") Integer id) {
 		sucursalService.deleteSucursal(id);

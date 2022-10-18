@@ -11,7 +11,7 @@
 
 	<h1 class="text-white">Modificar sucursal</h1>
 
-	<form th:action="@{/sucursal/add}" th:object="${Sucursal}" method="post">
+	<form th:action="@{/sucursal/guardar}" th:object="${Sucursal}" method="post">
 
 		<input type="hidden" th:field="*{pk_SucursalID}">
 

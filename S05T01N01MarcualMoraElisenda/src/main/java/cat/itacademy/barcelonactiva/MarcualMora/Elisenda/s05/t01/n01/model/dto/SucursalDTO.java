@@ -16,7 +16,7 @@ public class SucursalDTO {
 //				"Eslovenia", "Finlandia", "Hungría", "Italia", "Lituania", "Portugal", "Rumanía"};
 	
 	// constructores
-	public SucursalDTO(int pk_SucursalID, String nomSucursal, String paisSucursal, String tipusSucursal) {
+	public SucursalDTO(Integer pk_SucursalID, String nomSucursal, String paisSucursal, String tipusSucursal) {
 		super();
 		this.pk_SucursalID = pk_SucursalID;
 		this.nomSucursal = nomSucursal;
@@ -26,6 +26,11 @@ public class SucursalDTO {
 	
 	public SucursalDTO() {
 		
+	}
+	
+	public SucursalDTO(String nomSucursal, String paisSucursal) {
+		this.nomSucursal = nomSucursal;
+		this.paisSucursal = paisSucursal;
 	}
 	
 	//getters y setters
